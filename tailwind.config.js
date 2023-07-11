@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         sans: ["Maven Pro"],
         grotesque: ["Darker Grotesque"],
+        inter: ["Inter", "sans-serif"],
       },
       colors: {
         primary: "#181B92",
