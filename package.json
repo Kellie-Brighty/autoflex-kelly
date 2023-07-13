@@ -25,5 +25,6 @@
   },
   "devDependencies": {
     "@heroicons/react": "^2.0.18"
-  }
+  },
+  "packageManager": "yarn@1.22.1"
 }

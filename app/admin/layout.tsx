@@ -13,7 +13,7 @@ export default function RootLayout({
 
       <body
         suppressHydrationWarning={true}
-        className={`flex  w-screen h-screen overflow-y-hidden max-w-[1400px] m-auto`}
+        className={`flex w-screen h-screen overflow-y-hidden max-w-[1400px] m-auto`}
       >
         <div className="w-[250px] hidden md:flex">
           <Sidebar />
