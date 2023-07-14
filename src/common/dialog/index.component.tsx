@@ -23,7 +23,8 @@ const DialogComponent: React.FC<DialogComponentProps> = ({
       <div
         className={`fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ${
           show ? "z-20 opacity-100" : "-z-20 opacity-0"
-        } w-11/12 max-h-[91.67%] max-w-4xl bg-white shadow rounded-md transition-opacity duration-150 overflow-y-auto overflow-x-hidden`}
+        } w-11/12 max-h-[91.67%] max-w-4xl bg-white shadow rounded-md 
+        transition-opacity duration-150 overflow-y-auto overflow-x-hidden`}
       >
         {children}
       </div>
