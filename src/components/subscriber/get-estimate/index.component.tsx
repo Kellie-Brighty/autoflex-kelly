@@ -1,8 +1,66 @@
 import FormInputComponent from "@/common/form-input/index.component";
 import FormSelectComponent from "@/common/form-select/index.component";
 import ButtonComponent from "@/common/button/index.component";
+import { useState, useContext } from "react";
+import { useRouter } from "next/router";
+import { GlobalContext } from "../../../../services/context";
+import authService from "../../../../services/auth.service";
 
 const GetEstimateForSubscriberComponent = () => {
+  const router = useRouter();
+  const [states, setStates] = useState({
+    vehicleName: "",
+    vehicleYear: "",
+    vehicleWorth: "",
+    email: "",
+    phoneNumber: "",
+  });
+  const [uiStates, setUiStates] = useState({
+    loading: false,
+    error: "",
+  });
+  const { setEstimateModal } = useContext(GlobalContext);
+  const { GetVehichleEstimate } = authService;
+
+  const getEstimateAction = async () => {
+    setUiStates({ ...uiStates, loading: true });
+    if (
+      states.email === "" ||
+      states.phoneNumber === "" ||
+      states.vehicleName === "" ||
+      states.vehicleWorth === "" ||
+      states.vehicleYear === ""
+    ) {
+      setUiStates({
+        ...uiStates,
+        loading: false,
+        error: "No field should be left empty",
+      });
+      return;
+    } else {
+      try {
+        const res = await GetVehichleEstimate(parseFloat(states.vehicleWorth));
+        console.log(res.data);
+        const estimatedData = res.data.data;
+
+        localStorage.setItem(
+          "SubscriberVehicleEstimateData",
+          JSON.stringify(estimatedData)
+        );
+        setUiStates({ ...uiStates, loading: false });
+        localStorage.setItem("SubscriberRegData", JSON.stringify(states));
+        setEstimateModal(true);
+      } catch (err: any) {
+        console.log(err.response.data.message);
+        setUiStates({
+          ...uiStates,
+          loading: false,
+          error: err.response.data.message,
+        });
+      }
+    }
+  };
+
   return (
     <div>
       <div className={"p-8 border-b border-b-gray-main"}>
@@ -15,10 +73,14 @@ const GetEstimateForSubscriberComponent = () => {
             name={"carType"}
             required={true}
             label={"Which car do you own?"}
+            value={states.vehicleName}
+            onChange={(e) =>
+              setStates({ ...states, vehicleName: e.target.value })
+            }
           >
-            <option value={"male"}>Toyota</option>
-            <option value={"female"}>Toyota</option>
-            <option value={"others"}>Toyota</option>
+            <option value={"Toyota"}>Toyota</option>
+            <option value={"Lexus"}>Lexus</option>
+            <option value={"Mercedes"}>Mercedes</option>
           </FormSelectComponent>
         </div>
 
@@ -28,6 +90,10 @@ const GetEstimateForSubscriberComponent = () => {
             name={"year"}
             required={true}
             label={"Year"}
+            value={states.vehicleYear}
+            onChange={(e) => {
+              setStates({ ...states, vehicleYear: e.target.value });
+            }}
           />
         </div>
 
@@ -37,6 +103,10 @@ const GetEstimateForSubscriberComponent = () => {
             name={"carWorth"}
             required={true}
             label={"Estimated Car Worth"}
+            value={states.vehicleWorth}
+            onChange={(e) => {
+              setStates({ ...states, vehicleWorth: e.target.value });
+            }}
           />
         </div>
 
@@ -46,6 +116,8 @@ const GetEstimateForSubscriberComponent = () => {
             name={"email"}
             required={true}
             label={"Email"}
+            value={states.email}
+            onChange={(e) => setStates({ ...states, email: e.target.value })}
           />
         </div>
 
@@ -55,11 +127,20 @@ const GetEstimateForSubscriberComponent = () => {
             name={"phoneNumber"}
             required={true}
             label={"Phone Number"}
+            value={states.phoneNumber}
+            onChange={(e) =>
+              setStates({ ...states, phoneNumber: e.target.value })
+            }
           />
         </div>
 
         <div className={"col-span-12"}>
-          <ButtonComponent variant={"filled"}>Get Estimate</ButtonComponent>
+          <ButtonComponent
+            onClick={() => getEstimateAction()}
+            variant={"filled"}
+          >
+            {uiStates.loading ? "Getting..." : "Get Estimate"}
+          </ButtonComponent>
         </div>
       </div>
     </div>

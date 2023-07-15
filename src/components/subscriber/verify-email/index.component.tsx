@@ -1,4 +1,5 @@
 import ButtonComponent from "@/common/button/index.component";
+import Link from "next/link";
 
 const EmailIllustrationComponent = () => {
   return (
@@ -233,7 +234,19 @@ const EmailIllustrationComponent = () => {
   );
 };
 
-const VerifySubscriberEmailComponent = () => {
+type EmailOptionTypes = {
+  title: string;
+  subTitle: string;
+  buttonText: string;
+  linkToGo: string;
+};
+
+const VerifySubscriberEmailComponent = ({
+  title,
+  subTitle,
+  buttonText,
+  linkToGo,
+}: EmailOptionTypes) => {
   return (
     <div
       className={
@@ -249,15 +262,14 @@ const VerifySubscriberEmailComponent = () => {
 
         <div className={"space-y-2"}>
           <h1 className={"text-2xl text-center font-grotesk font-bold"}>
-            Verify Your Email
+            {title}
           </h1>
-          <p className={"text-gray-dark text-center"}>
-            Thank you, check your email for instructions to continue your
-            account setup.
-          </p>
+          <p className={"text-gray-dark text-center"}>{subTitle}</p>
         </div>
 
-        <ButtonComponent variant={"filled"}>Continue To Email</ButtonComponent>
+        <Link href={linkToGo}>
+          <ButtonComponent variant={"filled"}>{buttonText}</ButtonComponent>
+        </Link>
 
         <p>
           Didn&apos;t receive an email yet?{" "}

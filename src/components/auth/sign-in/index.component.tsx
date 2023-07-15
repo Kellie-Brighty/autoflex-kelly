@@ -5,6 +5,7 @@ import Link from "next/link";
 import ButtonComponent from "@/common/button/index.component";
 import { useState } from "react";
 import authService from "../../../../services/auth.service";
+import { useRouter } from "next/router";
 
 const SignInComponent = () => {
   const [email, setEmail] = useState("");
@@ -12,23 +13,25 @@ const SignInComponent = () => {
   const [errors, setErrors] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const { SignIn } = authService;
+  const router = useRouter();
 
   const SignInAction = async () => {
-    setLoading(true);
-    if (email === "" || password === "") {
-      setErrors("No field should be empy");
-      setLoading(false);
-    } else {
-      try {
-        const res = await SignIn(email, password);
-        console.log(res.data);
-        setLoading(false);
-      } catch (err: any) {
-        console.log(err.response.data.message);
-        setErrors(err.response.data.message);
-        setLoading(false);
-      }
-    }
+    // setLoading(true);
+    // if (email === "" || password === "") {
+    //   setErrors("No field should be empy");
+    //   setLoading(false);
+    // } else {
+    //   try {
+    //     const res = await SignIn(email, password);
+    //     console.log(res.data);
+    //     setLoading(false);
+    //   } catch (err: any) {
+    //     console.log(err.response.data.message);
+    //     setErrors(err.response.data.message);
+    //     setLoading(false);
+    //   }
+    // }
+    router.push("/");
   };
 
   return (
