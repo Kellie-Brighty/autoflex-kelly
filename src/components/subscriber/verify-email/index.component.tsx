@@ -238,7 +238,12 @@ type EmailOptionTypes = {
   title: string;
   subTitle: string;
   buttonText: string;
-  linkToGo: string;
+  linkToGo?: string;
+  action?: () => void;
+  resendText: string;
+  resendAction: () => void;
+  loading?: boolean;
+  actionLoading?: boolean;
 };
 
 const VerifySubscriberEmailComponent = ({
@@ -246,6 +251,11 @@ const VerifySubscriberEmailComponent = ({
   subTitle,
   buttonText,
   linkToGo,
+  action,
+  resendText,
+  resendAction,
+  loading,
+  actionLoading,
 }: EmailOptionTypes) => {
   return (
     <div
@@ -267,13 +277,24 @@ const VerifySubscriberEmailComponent = ({
           <p className={"text-gray-dark text-center"}>{subTitle}</p>
         </div>
 
-        <Link href={linkToGo}>
-          <ButtonComponent variant={"filled"}>{buttonText}</ButtonComponent>
-        </Link>
+        {linkToGo ? (
+          <Link href={linkToGo}>
+            <ButtonComponent variant={"filled"}>{buttonText}</ButtonComponent>
+          </Link>
+        ) : (
+          <ButtonComponent onClick={action} variant={"filled"}>
+            {actionLoading ? "Wait..." : buttonText}
+          </ButtonComponent>
+        )}
 
         <p>
-          Didn&apos;t receive an email yet?{" "}
-          <button className={"text-primary font-medium"}>Resend</button>
+          {resendText}{" "}
+          <button
+            onClick={() => resendAction()}
+            className={"text-primary font-medium"}
+          >
+            {loading ? "Resending..." : "Resend"}
+          </button>
         </p>
       </div>
     </div>

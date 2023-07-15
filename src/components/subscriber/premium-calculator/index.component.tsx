@@ -89,40 +89,40 @@ const SubscriberPremiumCalculatorComponent = () => {
         setStates({ ...states, loading: false, error: "Please choose a plan" });
         return;
       } else {
-        // const {
-        //   email,
-        //   phoneNumber,
-        //   vehicleName,
-        //   vehicleWorth,
-        //   vehicleYear,
-        //   plan,
-        //   policyName,
-        //   hasExcessBuyBack,
-        //   amount,
-        // } = parsedData;
-        // try {
-        //   const res = await RegisterSubscriber(
-        //     vehicleName,
-        //     vehicleYear,
-        //     vehicleWorth,
-        //     phoneNumber,
-        //     email,
-        //     amount,
-        //     plan,
-        //     hasExcessBuyBack,
-        //     policyName
-        //   );
-        //   console.log(res.data);
-        //   setStates({ ...states, loading: false });
-        // } catch (err: any) {
-        //   console.log(err.response.data.message);
-        //   setStates({
-        //     ...states,
-        //     loading: false,
-        //     error: err.response.data.message,
-        //   });
-        // }
-        router.push("/subscriber/validate-token");
+        const {
+          email,
+          phoneNumber,
+          vehicleName,
+          vehicleWorth,
+          vehicleYear,
+          plan,
+          hasExcessBuyBack,
+          amount,
+        } = parsedData;
+        try {
+          const res = await RegisterSubscriber(
+            vehicleName,
+            vehicleYear,
+            vehicleWorth,
+            phoneNumber,
+            email,
+            amount,
+            plan,
+            hasExcessBuyBack
+          );
+          console.log(res.data);
+          if (res.status === 200 || res.status === 201) {
+            router.push("/auth/validate-token");
+            setStates({ ...states, loading: false });
+          }
+        } catch (err: any) {
+          console.log(err.response.data.message);
+          setStates({
+            ...states,
+            loading: false,
+            error: err.response.data.message,
+          });
+        }
       }
     }
   };

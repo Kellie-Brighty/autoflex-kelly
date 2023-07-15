@@ -16,22 +16,22 @@ const SignInComponent = () => {
   const router = useRouter();
 
   const SignInAction = async () => {
-    // setLoading(true);
-    // if (email === "" || password === "") {
-    //   setErrors("No field should be empy");
-    //   setLoading(false);
-    // } else {
-    //   try {
-    //     const res = await SignIn(email, password);
-    //     console.log(res.data);
-    //     setLoading(false);
-    //   } catch (err: any) {
-    //     console.log(err.response.data.message);
-    //     setErrors(err.response.data.message);
-    //     setLoading(false);
-    //   }
-    // }
-    router.push("/");
+    setLoading(true);
+    if (email === "" || password === "") {
+      setErrors("No field should be empy");
+      setLoading(false);
+    } else {
+      try {
+        const res = await SignIn(email, password);
+        console.log(res.data);
+        setLoading(false);
+      } catch (err: any) {
+        console.log(err.response.data.message);
+        setErrors(err.response.data.message);
+        setLoading(false);
+      }
+    }
+    // router.push("/");
   };
 
   return (

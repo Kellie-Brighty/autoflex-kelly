@@ -16,8 +16,7 @@ const RegisterSubscriber = async (
   email: string,
   amount: string,
   plan: string,
-  hasExcessBuyBack: boolean,
-  policyName: string
+  hasExcessBuyBack: boolean
 ) => {
   return await api.post("/subscriber/register", {
     vehicleName,
@@ -28,11 +27,24 @@ const RegisterSubscriber = async (
     amount,
     plan,
     hasExcessBuyBack,
-    policyName,
   });
 };
 
-const authService = { SignIn, GetVehichleEstimate, RegisterSubscriber };
+const ResendEmailConfirmation = async (email: any) => {
+  return await api.get(`/auth/confirmation/resend/${email}`);
+};
+
+const VerifyUser = async (token: any) => {
+  return api.get(`/auth/verify-user?token=${token}`);
+};
+
+const authService = {
+  SignIn,
+  GetVehichleEstimate,
+  RegisterSubscriber,
+  ResendEmailConfirmation,
+  VerifyUser,
+};
 
 export default authService;
 
