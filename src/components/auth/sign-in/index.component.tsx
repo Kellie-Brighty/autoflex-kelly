@@ -3,9 +3,17 @@ import FormInputComponent from "@/common/form-input/index.component";
 import { EnvelopeIcon, LockClosedIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import ButtonComponent from "@/common/button/index.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import authService from "../../../../services/auth.service";
 import { useRouter } from "next/router";
+
+type RetrievedData = {
+  email: "ryfajuto@tutuapp.bid";
+  phoneNumber: string;
+  vehicleName: string;
+  vehicleWorth: string;
+  vehicleYear: string;
+};
 
 const SignInComponent = () => {
   const [email, setEmail] = useState("");
@@ -24,15 +32,34 @@ const SignInComponent = () => {
       try {
         const res = await SignIn(email, password);
         console.log(res.data);
-        setLoading(false);
+        if (res.status === 200 || res.status === 201) {
+          localStorage.setItem("AutoFlexUserToken", res.data.accessToken);
+          const userole = res.data.data.role;
+          if (userole === "subscriber") {
+            router.push("/subscriber/overview");
+          }
+          setLoading(false);
+        }
       } catch (err: any) {
         console.log(err.response.data.message);
         setErrors(err.response.data.message);
         setLoading(false);
       }
     }
-    // router.push("/");
   };
+
+  //Trying to set Email field automatically if the email exists in localStorage
+
+  // useEffect(() => {
+  //   const retrievedEmail = localStorage.getItem("SubscriberRegData");
+  //   let parsedData: RetrievedData | null = null;
+
+  //   if (retrievedEmail) {
+  //     parsedData = JSON.parse(retrievedEmail);
+  //     const email = parsedData?.email;
+  //     setEmail(email);
+  //   }
+  // }, []);
 
   return (
     <AuthLayout title={"Sign In"}>

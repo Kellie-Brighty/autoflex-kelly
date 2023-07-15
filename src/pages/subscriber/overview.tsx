@@ -5,6 +5,8 @@ export default function SubscriberOverview() {
     <SubscriberLayout
       title={"Complete KYC Information"}
       caption={"Provide your personal details and make payment to proceed."}
-    ></SubscriberLayout>
+    >
+      <div>KYC Section</div>
+    </SubscriberLayout>
   );
 }
