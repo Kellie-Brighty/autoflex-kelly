@@ -14,7 +14,7 @@ const FormInputComponent: React.FC<FormInputComponentProps> = ({
   ...inputProps
 }) => {
   return (
-    <div className={"flex flex-col gap-2"}>
+    <div className={"space-y-2"}>
       {label && <span className={"font-medium"}>{label}</span>}
 
       <div
