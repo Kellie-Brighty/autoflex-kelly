@@ -9,11 +9,8 @@ module.exports = {
       },
       colors: {
         primary: "#181B92",
-        gray: {
-          light: "#FAFAFA",
-          main: "#CBD5E1",
-          dark: "#64748B",
-        },
+        secondary: "#004852",
+        gray: { light: "#FAFAFA", main: "#CBD5E1", dark: "#64748B" },
         plans: {
           yearly: "#D1FFDD",
           quarterly: "#BFECFF",
@@ -21,11 +18,7 @@ module.exports = {
           weekly: "#FAF8C0",
         },
         background: "#F4F5FC",
-        users: {
-          subscriber: "#27272A",
-          agent: "#824FE7",
-          admin: "#1C5551",
-        },
+        users: { subscriber: "#27272A", agent: "#824FE7", admin: "#1C5551" },
       },
     },
   },
