@@ -55,7 +55,7 @@ const SubscriberPremiumCalculatorComponent = () => {
 
   useEffect(() => {
     const retreivedEstimateData = localStorage.getItem(
-      "SubscriberVehicleEstimateData"
+      "SubscriberVehicleEstimateData",
     );
     let parsedData: MyObjectType | null = null;
     if (retreivedEstimateData) {
@@ -108,7 +108,7 @@ const SubscriberPremiumCalculatorComponent = () => {
             email,
             amount,
             plan,
-            hasExcessBuyBack
+            hasExcessBuyBack,
           );
           console.log(res.data);
           if (res.status === 200 || res.status === 201) {
@@ -129,7 +129,7 @@ const SubscriberPremiumCalculatorComponent = () => {
 
   return (
     <div>
-      <div className={"p-8 border-b border-b-gray-main"}>
+      <div className={"p-8 border-b border-gray-main"}>
         <h1 className={"text-2xl font-grotesk font-bold"}>
           Premium Calculator
         </h1>
