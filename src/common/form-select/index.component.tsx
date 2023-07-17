@@ -11,16 +11,23 @@ const FormSelectComponent: React.FC<FormSelectComponentProps> = ({
   ...selectProps
 }) => {
   return (
-    <div className={"flex flex-col gap-2"}>
+    <div className={"space-y-2"}>
       <span className={"font-medium"}>{label}</span>
-      <select
-        {...selectProps}
+
+      <div
         className={
-          "p-3 text-gray-dark font-medium bg-gray-light border border-gray-main rounded-md focus:outline-none"
+          "p-3 flex items-center gap-2 bg-gray-light border border-gray-main rounded-md"
         }
       >
-        {children}
-      </select>
+        <select
+          {...selectProps}
+          className={
+            "flex-1 text-gray-dark font-medium bg-transparent focus:outline-none"
+          }
+        >
+          {children}
+        </select>
+      </div>
     </div>
   );
 };

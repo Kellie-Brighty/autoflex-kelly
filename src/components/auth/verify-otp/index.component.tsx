@@ -3,8 +3,8 @@ import React, { useRef, useState } from "react";
 import ButtonComponent from "@/common/button/index.component";
 
 const VerifyOTPComponent = () => {
-  const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
-  const [otpValue, setOTPValue] = useState<Array<string>>([]);
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  const [otpValue, setOTPValue] = useState<string[]>([]);
 
   const handleOTPChange =
     (characterIndex: number) =>

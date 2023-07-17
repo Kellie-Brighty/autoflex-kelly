@@ -45,7 +45,7 @@ const GetEstimateForSubscriberComponent = () => {
 
         localStorage.setItem(
           "SubscriberVehicleEstimateData",
-          JSON.stringify(estimatedData)
+          JSON.stringify(estimatedData),
         );
         setUiStates({ ...uiStates, loading: false });
         localStorage.setItem("SubscriberRegData", JSON.stringify(states));
@@ -63,7 +63,7 @@ const GetEstimateForSubscriberComponent = () => {
 
   return (
     <div>
-      <div className={"p-8 border-b border-b-gray-main"}>
+      <div className={"p-8 border-b border-gray-main"}>
         <h1 className={"text-2xl font-grotesk font-bold"}>Get Estimate</h1>
       </div>
 

@@ -5,7 +5,7 @@ import ButtonComponent from "@/common/button/index.component";
 const RegisterAgentComponent = () => {
   return (
     <div>
-      <div className={"p-8 border-b border-b-gray-main"}>
+      <div className={"p-8 border-b border-gray-main"}>
         <h1 className={"text-2xl font-grotesk font-bold"}>
           Register As An Agent
         </h1>
