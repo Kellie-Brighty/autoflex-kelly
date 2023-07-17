@@ -8,10 +8,40 @@ import deactivatedPolicies from "../../../../public/admin-assets/deactivated-pol
 import expiredPolicies from "../../../../public/admin-assets/expired-policies.png";
 import redDown from "../../../../public/admin-assets/red-down.png";
 
-const DashboardStatistics = () => {
+interface DashboardStatisticsInterface {
+  title?: string;
+  firstBoxImageUrl: string;
+  firstBoxTitle: string;
+  firstBoxPrice: string;
+  secondBoxImageUrl: string;
+  secondBoxTitle: string;
+  secondBoxPrice: string;
+  thirdBoxImageUrl: string;
+  thirdBoxTitle: string;
+  thirdBoxPrice: string;
+  fourthBoxImageUrl: string;
+  fourthBoxTitle: string;
+  fourthBoxPrice: string;
+}
+
+const DashboardStatistics = ({
+  title,
+  firstBoxImageUrl,
+  firstBoxTitle,
+  firstBoxPrice,
+  secondBoxImageUrl,
+  secondBoxTitle,
+  secondBoxPrice,
+  thirdBoxImageUrl,
+  thirdBoxTitle,
+  thirdBoxPrice,
+  fourthBoxImageUrl,
+  fourthBoxTitle,
+  fourthBoxPrice,
+}: DashboardStatisticsInterface) => {
   return (
     <div>
-      <p className={`text-[18px] font-medium`}>Dashboard Statistics</p>
+      <p className={`text-[18px] font-medium`}>{title}</p>
 
       <div
         className={`mt-[15px] items-center flex bg-white py-[20px] px-[24px] justify-between`}
@@ -19,7 +49,7 @@ const DashboardStatistics = () => {
         <div className={``}>
           <div className={`flex w-[200px] justify-between`}>
             <Image
-              src={"/assets/admin/active-policies.png"}
+              src={firstBoxImageUrl}
               alt="active-policies"
               width={48}
               height={48}
@@ -35,11 +65,11 @@ const DashboardStatistics = () => {
             className={`mt-[16px] text-[#64748B] text-[14px]
             font-bold font-inter`}
           >
-            Active Policies
+            {firstBoxTitle}
           </p>
           <div className={`flex items-center space-x-5 mt-[16px]`}>
             <p className={`font-grotesque font-extrabold text-[24px]`}>
-              40,555
+              {firstBoxPrice}
             </p>
             <div
               className={`flex items-center bg-[#24d16327] p-[2px] rounded-md px-[5px] mt-[3px]`}
@@ -58,7 +88,7 @@ const DashboardStatistics = () => {
         <div className={``}>
           <div className={`flex w-[200px] justify-between`}>
             <Image
-              src={"/assets/admin/active-renewals.png"}
+              src={secondBoxImageUrl}
               alt="active-policies"
               width={48}
               height={48}
@@ -74,11 +104,11 @@ const DashboardStatistics = () => {
             className={`mt-[16px] text-[#64748B] text-[14px]
             font-bold font-inter`}
           >
-            Awaiting Renewals
+            {secondBoxTitle}
           </p>
           <div className={`flex items-center space-x-5 mt-[16px]`}>
             <p className={`font-grotesque font-extrabold text-[24px]`}>
-              40,555
+              {secondBoxPrice}
             </p>
             <div
               className={`flex items-center bg-[#ed1c2336] p-[2px] rounded-md px-[5px] mt-[3px]`}
@@ -97,7 +127,7 @@ const DashboardStatistics = () => {
         <div className={``}>
           <div className={`flex w-[200px] justify-between`}>
             <Image
-              src={"/assets/admin/deactivated-policies.png"}
+              src={thirdBoxImageUrl}
               alt="active-policies"
               width={48}
               height={48}
@@ -113,11 +143,11 @@ const DashboardStatistics = () => {
             className={`mt-[16px] text-[#64748B] text-[14px]
             font-bold font-inter`}
           >
-            Deactivated Policies
+            {thirdBoxTitle}
           </p>
           <div className={`flex items-center space-x-5 mt-[16px]`}>
             <p className={`font-grotesque font-extrabold text-[24px]`}>
-              40,555
+              {thirdBoxPrice}
             </p>
             <div
               className={`flex items-center bg-[#ed1c2330] p-[2px] rounded-md px-[5px] mt-[3px]`}
@@ -136,7 +166,7 @@ const DashboardStatistics = () => {
         <div className={``}>
           <div className={`flex w-[200px] justify-between`}>
             <Image
-              src={"/assets/admin/expired-policies.png"}
+              src={fourthBoxImageUrl}
               alt="active-policies"
               width={48}
               height={48}
@@ -152,11 +182,11 @@ const DashboardStatistics = () => {
             className={`mt-[16px] text-[#64748B] text-[14px]
             font-bold font-inter`}
           >
-            Expired Policies
+            {fourthBoxTitle}
           </p>
           <div className={`flex items-center space-x-5 mt-[16px]`}>
             <p className={`font-grotesque font-extrabold text-[24px]`}>
-              40,555
+              {fourthBoxPrice}
             </p>
             <div
               className={`flex items-center bg-[#ed1c232b] p-[2px] rounded-md px-[5px] mt-[3px]`}

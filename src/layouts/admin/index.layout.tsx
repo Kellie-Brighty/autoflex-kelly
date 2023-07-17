@@ -61,79 +61,16 @@ const links = [
     href: "/admin/API-response",
   },
   {
-    label: "Settings",
-    icon: "/assets/admin/faded-settings.svg",
-    selectedIcon: "/assets/admin/setting.svg",
-    href: "/admin/settings",
+    label: "Claim",
+    icon: "/assets/admin/faded-claim.png",
+    selectedIcon: "/assets/admin/claim.png",
+    href: "/admin/claim",
   },
   {
-    label: "Logout",
-    icon: "/assets/admin/faded-logout.svg",
-    selectedIcon: "/assets/admin/logout.svg",
-    href: "/",
-  },
-];
-
-const navbarLinks = [
-  {
-    label: "Overview",
-    icon: "/assets/admin/faded-overview.svg",
-    selectedIcon: "/assets/admin/overview.svg",
-    link: "/admin/overview",
-  },
-  {
-    label: "Polices",
-    icon: "/assets/admin/faded-policies.svg",
-    selectedIcon: "/assets/admin/policies.svg",
-    link: "/admin/policies",
-  },
-  {
-    label: "Agent Approval",
-    icon: "/assets/admin/faded-agent-approval.svg",
-    selectedIcon: "/assets/admin/agent-approval.svg",
-    link: "/admin/agent-approval",
-  },
-  {
-    label: "Revenue Share",
-    icon: "/assets/admin/faded-revenue-share.svg",
-    selectedIcon: "/assets/admin/revenue-share.svg",
-    link: "/admin/revenue-share",
-  },
-  {
-    label: "Management Report",
-    icon: "/assets/admin/faded-management-report.svg",
-    selectedIcon: "/assets/admin/management-report.svg",
-    link: "/admin/management-report",
-  },
-  {
-    label: "Agent Transaction",
-    icon: "/assets/admin/faded-agent-transaction.svg",
-    selectedIcon: "/assets/admin/agent-transaction.svg",
-    link: "/admin/agent-transaction",
-  },
-  {
-    label: "Subscriber Transaction",
-    icon: "/assets/admin/faded-subscribers-transaction.svg",
-    selectedIcon: "/assets/admin/subscribers-transaction.svg",
-    link: "/admin/subscriber-transaction",
-  },
-  {
-    label: "API Response",
-    icon: "/assets/admin/faded-api-response.svg",
-    selectedIcon: "/assets/admin/api-response.svg",
-    link: "/admin/API-response",
-  },
-  {
-    label: "Settings",
-    icon: "/assets/admin/faded-settings.svg",
-    selectedIcon: "/assets/admin/setting.svg",
-    link: "/admin/settings",
-  },
-  {
-    label: "Logout",
-    icon: "/assets/admin/faded-logout.svg",
-    selectedIcon: "/assets/admin/logout.svg",
-    link: "/",
+    label: "Manage Users",
+    icon: "/assets/admin/faded-manage-users.png",
+    selectedIcon: "/assets/admin/manage-users.png",
+    href: "/admin/manage-users",
   },
 ];
 

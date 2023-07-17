@@ -1,14 +1,10 @@
 import DashboardStatistics from "@/components/admin/DashboardStatistics";
 import AdminLayout from "@/layouts/admin/index.layout";
 
-export default function AdminOverview() {
+const Policies = () => {
   return (
-    <AdminLayout
-      title={"Welcome back Admin 👋"}
-      caption={"Monday, 05 Agust 2022"}
-    >
+    <AdminLayout title="Policies" caption="View your policies and covers">
       <DashboardStatistics
-        title="Dashboard Statistics"
         firstBoxImageUrl="/assets/admin/active-policies.png"
         firstBoxTitle="Active Policies"
         firstBoxPrice="40,555"
@@ -24,4 +20,6 @@ export default function AdminOverview() {
       />
     </AdminLayout>
   );
-}
+};
+
+export default Policies;
