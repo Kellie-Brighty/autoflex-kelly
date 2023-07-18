@@ -61,7 +61,7 @@ const SubscriberLayout: React.FC<SubscriberLayoutProps> = ({
     <div className={"w-full h-screen hidden lg:flex bg-background"}>
       <div
         className={
-          "w-1/3 max-w-sm h-full p-8 space-y-8 bg-white border-r border-gray-main overflow-auto"
+          "flex-shrink-0 w-1/3 max-w-sm h-full p-8 space-y-8 bg-white border-r border-gray-main overflow-auto"
         }
       >
         <div className={"w-full"}>
@@ -96,7 +96,7 @@ const SubscriberLayout: React.FC<SubscriberLayoutProps> = ({
         </div>
       </div>
 
-      <div className={"flex-1 h-screen flex flex-col"}>
+      <div className={"flex-1 w-2/3 h-screen flex flex-col"}>
         <div
           className={
             "w-full p-6 flex items-center justify-between bg-white border-b border-gray-main"
