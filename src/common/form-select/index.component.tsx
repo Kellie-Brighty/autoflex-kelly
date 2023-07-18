@@ -2,23 +2,26 @@ import React from "react";
 
 interface FormSelectComponentProps
   extends React.SelectHTMLAttributes<HTMLSelectElement> {
-  label: string;
+  label?: string;
+  Icon?: React.ReactNode;
 }
 
 const FormSelectComponent: React.FC<FormSelectComponentProps> = ({
   label,
+  Icon,
   children,
   ...selectProps
 }) => {
   return (
     <div className={"space-y-2"}>
-      <span className={"font-medium"}>{label}</span>
+      {label && <span className={"font-medium"}>{label}</span>}
 
       <div
         className={
           "p-3 flex items-center gap-2 bg-gray-light border border-gray-main rounded-md"
         }
       >
+        {Icon}
         <select
           {...selectProps}
           className={
