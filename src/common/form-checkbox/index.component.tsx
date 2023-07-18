@@ -2,7 +2,7 @@ import React from "react";
 
 interface FormCheckboxComponentProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label?: string;
 }
 
 const FormCheckboxComponent: React.FC<FormCheckboxComponentProps> = ({
@@ -18,7 +18,7 @@ const FormCheckboxComponent: React.FC<FormCheckboxComponentProps> = ({
           "p-3 text-gray-dark font-medium bg-gray-light border border-gray-main rounded-md focus:outline-none"
         }
       />
-      <span className={"font-medium"}>{label}</span>
+      {label && <span className={"font-medium"}>{label}</span>}
     </div>
   );
 };

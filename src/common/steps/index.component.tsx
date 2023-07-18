@@ -39,7 +39,7 @@ const StepsComponent: React.FC<StepsComponentProps> = ({ steps }) => {
             )}
           </div>
 
-          {index < steps.length - 1 ? (
+          {index < steps.length - 1 && (
             <div
               className={`absolute top-7 left-16 -translate-y-1/2 w-[calc(100%-56px)] h-0.5 ${
                 steps[index + 1].stepStatus === "pending"
@@ -51,8 +51,6 @@ const StepsComponent: React.FC<StepsComponentProps> = ({ steps }) => {
                   : ""
               }`}
             />
-          ) : (
-            <></>
           )}
 
           <div>

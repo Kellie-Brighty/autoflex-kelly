@@ -628,10 +628,18 @@ const SubscriberKycStepsComponent = () => {
         <StepSwitch />
 
         <div className={"flex items-center justify-end gap-3"}>
-          <ButtonComponent variant={"outlined"} onClick={handlePrevStep}>
+          <ButtonComponent
+            size={"base"}
+            variant={"outlined"}
+            onClick={handlePrevStep}
+          >
             Go Back
           </ButtonComponent>
-          <ButtonComponent variant={"filled"} onClick={handleNextStep}>
+          <ButtonComponent
+            size={"base"}
+            variant={"filled"}
+            onClick={handleNextStep}
+          >
             Next Step
           </ButtonComponent>
         </div>

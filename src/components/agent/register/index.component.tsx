@@ -11,7 +11,7 @@ const RegisterAgentComponent = () => {
         </h1>
       </div>
 
-      <div className={"p-8 grid grid-cols-12 gap-8"}>
+      <div className={"p-8 grid grid-cols-12 gap-3"}>
         <div className={"col-span-12 lg:col-span-4"}>
           <FormInputComponent
             type={"text"}
@@ -106,7 +106,7 @@ const RegisterAgentComponent = () => {
         </div>
 
         <div className={"col-span-12"}>
-          <ButtonComponent variant={"filled"}>
+          <ButtonComponent size={"base"} variant={"filled"}>
             Submit Registration
           </ButtonComponent>
         </div>

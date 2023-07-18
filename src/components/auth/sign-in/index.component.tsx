@@ -92,6 +92,7 @@ const SignInComponent = () => {
         />
 
         <ButtonComponent
+          size={"base"}
           fullWidth={true}
           variant={"filled"}
           onClick={SignInAction}
