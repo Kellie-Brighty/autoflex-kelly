@@ -19,7 +19,7 @@ const IndexComponent = () => {
           Icon={<LockClosedIcon className={"w-5 h-5 text-gray-dark"} />}
         />
 
-        <ButtonComponent fullWidth={true} variant={"filled"}>
+        <ButtonComponent size={"base"} fullWidth={true} variant={"filled"}>
           Set Password
         </ButtonComponent>
       </div>

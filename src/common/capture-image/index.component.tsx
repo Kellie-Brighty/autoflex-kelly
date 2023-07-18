@@ -92,7 +92,11 @@ const CaptureImageComponent: React.FC<CaptureImageComponentProps> = ({
             <video ref={videoRef} autoPlay></video>
           </div>
 
-          <ButtonComponent variant={"filled"} onClick={handleCaptureImage}>
+          <ButtonComponent
+            size={"base"}
+            variant={"filled"}
+            onClick={handleCaptureImage}
+          >
             Capture
           </ButtonComponent>
         </>

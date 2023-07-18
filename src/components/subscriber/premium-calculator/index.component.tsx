@@ -226,6 +226,7 @@ const SubscriberPremiumCalculatorComponent = () => {
 
         <div className={"col-span-12"}>
           <ButtonComponent
+            size={"base"}
             onClick={registerSubscriberAction}
             variant={"filled"}
           >

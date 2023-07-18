@@ -67,7 +67,7 @@ const GetEstimateForSubscriberComponent = () => {
         <h1 className={"text-2xl font-grotesk font-bold"}>Get Estimate</h1>
       </div>
 
-      <div className={"p-8 grid grid-cols-12 gap-8"}>
+      <div className={"p-8 grid grid-cols-12 gap-3"}>
         <div className={"col-span-12 lg:col-span-12"}>
           <FormSelectComponent
             name={"carType"}
@@ -136,6 +136,7 @@ const GetEstimateForSubscriberComponent = () => {
 
         <div className={"col-span-12"}>
           <ButtonComponent
+            size={"base"}
             onClick={() => getEstimateAction()}
             variant={"filled"}
           >

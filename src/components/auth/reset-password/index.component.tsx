@@ -71,7 +71,12 @@ const IndexComponent = ({
           }}
         />
 
-        <ButtonComponent fullWidth={true} variant={"filled"} onClick={action}>
+        <ButtonComponent
+          size={"base"}
+          fullWidth={true}
+          variant={"filled"}
+          onClick={action}
+        >
           {loading ? "Resetting..." : "Reset Password"}
         </ButtonComponent>
 

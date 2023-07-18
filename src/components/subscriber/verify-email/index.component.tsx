@@ -279,10 +279,12 @@ const VerifySubscriberEmailComponent = ({
 
         {linkToGo ? (
           <Link href={linkToGo}>
-            <ButtonComponent variant={"filled"}>{buttonText}</ButtonComponent>
+            <ButtonComponent size={"base"} variant={"filled"}>
+              {buttonText}
+            </ButtonComponent>
           </Link>
         ) : (
-          <ButtonComponent onClick={action} variant={"filled"}>
+          <ButtonComponent size={"base"} onClick={action} variant={"filled"}>
             {actionLoading ? "Wait..." : buttonText}
           </ButtonComponent>
         )}

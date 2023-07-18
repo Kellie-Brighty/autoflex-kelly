@@ -48,7 +48,7 @@ const VerifyOTPComponent = () => {
             ))}
         </div>
 
-        <ButtonComponent fullWidth={true} variant={"filled"}>
+        <ButtonComponent size={"base"} fullWidth={true} variant={"filled"}>
           Verify
         </ButtonComponent>
 
