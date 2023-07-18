@@ -31,7 +31,7 @@ const FormInputComponent: React.FC<FormInputComponentProps> = ({
         />
       </div>
 
-      <div className={"text-sm text-gray-dark"}>{helper}</div>
+      {helper && <div className={"text-sm text-gray-dark"}>{helper}</div>}
     </div>
   );
 };
