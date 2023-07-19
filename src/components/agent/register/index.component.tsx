@@ -24,18 +24,18 @@ const RegisterAgentComponent = () => {
         <div className={"col-span-12 lg:col-span-4"}>
           <FormInputComponent
             type={"text"}
-            name={"middleName"}
+            name={"lastName"}
             required={true}
-            label={"Middle Name"}
+            label={"Last Name"}
           />
         </div>
 
         <div className={"col-span-12 lg:col-span-4"}>
           <FormInputComponent
             type={"text"}
-            name={"lastName"}
+            name={"middleName"}
             required={true}
-            label={"Last Name"}
+            label={"Middle Name"}
           />
         </div>
 
@@ -83,7 +83,11 @@ const RegisterAgentComponent = () => {
         </div>
 
         <div className={"col-span-12 lg:col-span-4"}>
-          <FormSelectComponent name={"brand"} required={true} label={"Branch"}>
+          <FormSelectComponent
+            name={"brand"}
+            required={true}
+            label={"Means of Identification"}
+          >
             <option value={"internationalPassport"}>
               International Passport
             </option>

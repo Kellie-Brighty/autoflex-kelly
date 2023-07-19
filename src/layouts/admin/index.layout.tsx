@@ -1,12 +1,4 @@
 import Image from "next/image";
-import {
-  BellIcon,
-  ClipboardIcon,
-  CreditCardIcon,
-  DocumentTextIcon,
-  Squares2X2Icon,
-  TruckIcon,
-} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
@@ -74,13 +66,13 @@ const links = [
   },
 ];
 
-interface SubscriberLayoutProps {
+interface AdminLayoutProps {
   title: string;
   caption: string;
   children: React.ReactNode;
 }
 
-const AdminLayout: React.FC<SubscriberLayoutProps> = ({
+const AdminLayout: React.FC<AdminLayoutProps> = ({
   title,
   caption,
   children,
