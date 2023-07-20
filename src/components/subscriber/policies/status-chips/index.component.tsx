@@ -1,7 +1,7 @@
 import React from "react";
 
 interface SubscriberPolicyStatusChipsComponentProps {
-  type: "active" | "abandoned" | "awaiting" | "expired";
+  type: "active" | "abandoned" | "awaiting" | "expired" | "pending";
 }
 
 const subscriberPolicyChipTypeMap = {
@@ -9,6 +9,7 @@ const subscriberPolicyChipTypeMap = {
   abandoned: "Abandoned",
   awaiting: "Awaiting Renewal",
   expired: "Expired",
+  pending: "Pending",
 };
 
 const SubscriberPolicyStatusChipsComponent: React.FC<
@@ -25,6 +26,8 @@ const SubscriberPolicyStatusChipsComponent: React.FC<
           ? "text-yellow-500 font-medium bg-yellow-500"
           : type === "expired"
           ? "text-red-500 font-medium bg-red-500"
+          : type === "pending"
+          ? "text-yellow-500 font-medium bg-yellow-500"
           : ""
       } bg-opacity-10 rounded-md`}
     >
