@@ -34,7 +34,7 @@ const links = [
     id: 3,
     Icon: <TruckIcon className={"w-8 h-8"} />,
     label: "Vehicle",
-    href: "/agent/vehicle",
+    href: "/agent/vehicles",
   },
   {
     id: 5,
