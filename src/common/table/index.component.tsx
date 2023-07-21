@@ -18,6 +18,7 @@ export interface TableRow {
 interface TableComponentProps {
   headers: TableHeader[];
   rows: TableRow[];
+  paginate?: boolean;
   totalPages: number;
   currentPage: number;
   onPageChange: (page: number) => void;
@@ -26,6 +27,7 @@ interface TableComponentProps {
 const TableComponent: React.FC<TableComponentProps> = ({
   headers,
   rows,
+  paginate = true,
   totalPages,
   currentPage,
   onPageChange,
@@ -68,13 +70,17 @@ const TableComponent: React.FC<TableComponentProps> = ({
         </table>
       </div>
 
-      <div className={"flex items-center justify-end"}>
-        <PaginationComponent
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={onPageChange}
-        />
-      </div>
+      {paginate ? (
+        <div className={"flex items-center justify-end"}>
+          <PaginationComponent
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={onPageChange}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
