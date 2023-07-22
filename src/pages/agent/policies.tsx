@@ -1,12 +1,5 @@
-import AgentLayout from "@/layouts/agent/index.layout";
-import React from "react";
+import AgentPoliciesComponent from "@/components/agent/policies/index.component";
 
-const policies = () => {
-  return (
-    <AgentLayout title="Policies" caption="View your policies and covers">
-      policies
-    </AgentLayout>
-  );
-};
-
-export default policies;
+export default function AgentPolicies() {
+  return <AgentPoliciesComponent />;
+}

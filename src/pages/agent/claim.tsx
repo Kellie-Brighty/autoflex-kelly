@@ -1,12 +1,6 @@
-import AgentLayout from "@/layouts/agent/index.layout";
 import React from "react";
+import AgentClaimComponent from "@/components/agent/claim";
 
-const claim = () => {
-  return (
-    <AgentLayout title="Claim" caption="View and manage your claim">
-      claim
-    </AgentLayout>
-  );
-};
-
-export default claim;
+export default function AgentClaim() {
+  return <AgentClaimComponent />;
+}

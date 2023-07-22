@@ -4,6 +4,7 @@ import {
   ClipboardIcon,
   CreditCardIcon,
   DocumentTextIcon,
+  LockClosedIcon,
   Squares2X2Icon,
   TruckIcon,
 } from "@heroicons/react/24/outline";
@@ -59,7 +60,7 @@ const belowLinks = [
   },
   {
     id: 2,
-    Icon: <Squares2X2Icon className={"w-8 h-8"} />,
+    Icon: <LockClosedIcon className={"w-8 h-8"} />,
     label: "Log Out",
     href: "/agent/log-out",
   },
@@ -82,7 +83,7 @@ const AgentLayout: React.FC<AgentLayoutProps> = ({
     <div className={"w-full h-screen hidden lg:flex bg-background"}>
       <div
         className={
-          "flex-shrink-0 w-1/5 max-w-sm h-full p-8 space-y-8 bg-white border-r border-gray-main overflow-auto"
+          "flex-shrink-0 w-1/5 max-w-sm h-full p-8 space-y-16 bg-white border-r border-gray-main overflow-auto"
         }
       >
         <div className={"w-full"}>
@@ -99,38 +100,40 @@ const AgentLayout: React.FC<AgentLayoutProps> = ({
           </div>
         </div>
 
-        <div className={"space-y-3"}>
-          {links.map((link) => (
-            <Link
-              key={link.id}
-              href={link.href}
-              className={`w-full p-3 flex items-center gap-2 ${
-                router.pathname === link.href
-                  ? "text-primary bg-background"
-                  : "text-gray-dark"
-              } rounded-md`}
-            >
-              {link.Icon}
-              <span className={"font-medium"}>{link.label}</span>
-            </Link>
-          ))}
-        </div>
+        <div className={"space-y-8"}>
+          <div className={"space-y-3"}>
+            {links.map((link) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className={`w-full p-3 flex items-center gap-2 ${
+                  router.pathname === link.href
+                    ? "text-primary bg-background"
+                    : "text-gray-dark"
+                } rounded-md`}
+              >
+                {link.Icon}
+                <span className={"font-medium"}>{link.label}</span>
+              </Link>
+            ))}
+          </div>
 
-        <div>
-          {belowLinks.map((link) => (
-            <Link
-              key={link.id}
-              href={link.href}
-              className={`w-full p-3 flex items-center gap-2 ${
-                router.pathname === link.href
-                  ? "text-primary bg-background"
-                  : "text-gray-dark"
-              } rounded-md`}
-            >
-              {link.Icon}
-              <span className={"font-medium"}>{link.label}</span>
-            </Link>
-          ))}
+          <div>
+            {belowLinks.map((link) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className={`w-full p-3 flex items-center gap-2 ${
+                  router.pathname === link.href
+                    ? "text-primary bg-background"
+                    : "text-gray-dark"
+                } rounded-md`}
+              >
+                {link.Icon}
+                <span className={"font-medium"}>{link.label}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 

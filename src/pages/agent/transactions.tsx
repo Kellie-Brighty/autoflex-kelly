@@ -1,12 +1,5 @@
-import AgentLayout from "@/layouts/agent/index.layout";
-import React from "react";
+import AgentTransactionsComponent from "@/components/agent/transactions";
 
-const transactions = () => {
-  return (
-    <AgentLayout title="Transactions" caption="View your transactions">
-      transactions
-    </AgentLayout>
-  );
-};
-
-export default transactions;
+export default function AgentTransactions() {
+  return <AgentTransactionsComponent />;
+}

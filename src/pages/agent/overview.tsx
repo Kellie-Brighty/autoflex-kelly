@@ -1,15 +1,17 @@
-import AgentLayout from "@/layouts/agent/index.layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import AgentKycStepsComponent from "@/components/agent/kyc-steps/index.component";
+import AgentDashboardComponent from "@/components/agent/dashboard";
 
-const overview = () => {
-  return (
-    <AgentLayout
-      title="Complete KYC information"
-      caption="Provide your personal details and make payment to proceed"
-    >
-      overview
-    </AgentLayout>
+export default function AgentOverview() {
+  const [kycCompleted, setKycCompleted] = useState(false);
+
+  useEffect(() => {
+    setKycCompleted(true);
+  }, []);
+
+  return kycCompleted ? (
+    <AgentDashboardComponent />
+  ) : (
+    <AgentKycStepsComponent />
   );
-};
-
-export default overview;
+}

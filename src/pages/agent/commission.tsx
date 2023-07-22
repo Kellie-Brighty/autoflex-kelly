@@ -1,12 +1,5 @@
-import AgentLayout from "@/layouts/agent/index.layout";
-import React from "react";
+import AgentCommissionComponent from "@/components/agent/commission";
 
-const commission = () => {
-  return (
-    <AgentLayout title="Commission" caption="View our commission">
-      commissions
-    </AgentLayout>
-  );
-};
-
-export default commission;
+export default function AgentCommissions() {
+  return <AgentCommissionComponent />;
+}
