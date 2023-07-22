@@ -3,7 +3,7 @@ import React from "react";
 interface ButtonComponentProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: "sm" | "base";
-  variant: "filled" | "outlined";
+  variant: "filled" | "outlined" | "ghost";
   fullWidth?: boolean;
   children: React.ReactNode;
 }
@@ -23,7 +23,11 @@ const ButtonComponent: React.FC<ButtonComponentProps> = ({
       } font-medium ${
         variant === "filled"
           ? "text-white bg-primary"
-          : "text-primary border-2 border-primary"
+          : variant === "outlined"
+          ? "text-primary border-2 border-primary"
+          : variant === "ghost"
+          ? "text-primary bg-primary bg-opacity-5"
+          : ""
       } rounded-md`}
     >
       <span>{children}</span>
