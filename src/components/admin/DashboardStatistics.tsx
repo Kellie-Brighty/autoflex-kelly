@@ -1,12 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import activePolices from "../../../../public/admin-assets/active-policies.png";
-import openArrow from "../../../../public/admin-assets/arrows-diagonal.svg";
-import greenUp from "../../../../public/admin-assets/green-up.png";
-import awaitingRenewals from "../../../../public/admin-assets/active-renewals.png";
-import deactivatedPolicies from "../../../../public/admin-assets/deactivated-policies.png";
-import expiredPolicies from "../../../../public/admin-assets/expired-policies.png";
-import redDown from "../../../../public/admin-assets/red-down.png";
 
 interface DashboardStatisticsInterface {
   title?: string;
