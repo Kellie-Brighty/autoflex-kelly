@@ -4,7 +4,6 @@ import TableComponent, {
   TableRow,
 } from "@/common/table/index.component";
 import FormCheckboxComponent from "@/common/form-checkbox/index.component";
-import SubscriberPolicyStatusChipsComponent from "@/components/subscriber/policies/status-chips/index.component";
 import ButtonComponent from "@/common/button/index.component";
 import SubscriberLayout from "@/layouts/subscriber/index.layout";
 import FormInputComponent from "@/common/form-input/index.component";
