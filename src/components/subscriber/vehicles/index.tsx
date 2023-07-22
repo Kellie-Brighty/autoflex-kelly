@@ -24,6 +24,9 @@ interface Vehicle {
 const SubscriberVehiclesComponent = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
 
+  const [vehiclesTotalPages, setVehiclesTotalPages] = useState(0);
+  const [vehiclesCurrentPage, setVehiclesCurrentPage] = useState(0);
+
   useEffect(() => {
     setVehicles([
       {
@@ -67,6 +70,9 @@ const SubscriberVehiclesComponent = () => {
         premium: 1625000,
       },
     ]);
+
+    setVehiclesTotalPages(50);
+    setVehiclesCurrentPage(1);
   }, []);
 
   return (
@@ -120,8 +126,8 @@ const SubscriberVehiclesComponent = () => {
 
             <div className={"col-span-12 flex items-center justify-end"}>
               <PaginationComponent
-                totalPages={50}
-                currentPage={1}
+                totalPages={vehiclesTotalPages}
+                currentPage={vehiclesCurrentPage}
                 onPageChange={() => {}}
               />
             </div>
