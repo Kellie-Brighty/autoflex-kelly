@@ -27,11 +27,7 @@ const SubscriberRecentTransactionItemComponent: React.FC<
       : null;
 
   return (
-    <div
-      className={
-        "p-3 flex items-center justify-between gap-3 border-b border-gray-main"
-      }
-    >
+    <div className={"p-6 flex items-center justify-between gap-3"}>
       <div className={"flex items-center gap-2"}>
         <div
           className={`p-3 ${
