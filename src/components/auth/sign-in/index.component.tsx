@@ -20,7 +20,7 @@ const SignInComponent = () => {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  const { SignIn } = authService;
+  const { SubscriberSignIn, AgentSignIn, AdminSignIn } = authService;
   const router = useRouter();
 
   const SignInAction = async () => {
@@ -30,15 +30,41 @@ const SignInComponent = () => {
       setLoading(false);
     } else {
       try {
-        const res = await SignIn(email, password);
-        console.log(res.data);
-        if (res.status === 200 || res.status === 201) {
-          localStorage.setItem("AutoFlexUserToken", res.data.accessToken);
-          const userole = res.data.data.role;
-          if (userole === "subscriber") {
-            router.push("/subscriber/overview");
+        const userState = localStorage.getItem("UserState");
+
+        if (userState && userState === "Subscriber") {
+          const res = await SubscriberSignIn(email, password);
+          console.log(res.data);
+          if (res.status === 200 || res.status === 201) {
+            localStorage.setItem("AutoFlexUserToken", res.data.accessToken);
+            const userole = res.data.data.role;
+            if (userole) {
+              router.push(`/${userole}/overview`);
+            }
+            setLoading(false);
           }
-          setLoading(false);
+        } else if (userState && userState === "Agent") {
+          const res = await AgentSignIn(email, password);
+          console.log(res.data);
+          if (res.status === 200 || res.status === 201) {
+            localStorage.setItem("AutoFlexUserToken", res.data.accessToken);
+            const userole = res.data.data.role;
+            if (userole) {
+              router.push(`/${userole}/overview`);
+            }
+            setLoading(false);
+          }
+        } else {
+          const res = await AdminSignIn(email, password);
+          console.log(res.data);
+          if (res.status === 200 || res.status === 201) {
+            localStorage.setItem("AutoFlexUserToken", res.data.accessToken);
+            const userole = res.data.data.role;
+            if (userole) {
+              router.push(`/${userole}/overview`);
+            }
+            setLoading(false);
+          }
         }
       } catch (err: any) {
         console.log(err.response.data.message);

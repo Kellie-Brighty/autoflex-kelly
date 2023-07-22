@@ -55,7 +55,7 @@ const SubscriberPremiumCalculatorComponent = () => {
 
   useEffect(() => {
     const retreivedEstimateData = localStorage.getItem(
-      "SubscriberVehicleEstimateData",
+      "SubscriberVehicleEstimateData"
     );
     let parsedData: MyObjectType | null = null;
     if (retreivedEstimateData) {
@@ -108,7 +108,7 @@ const SubscriberPremiumCalculatorComponent = () => {
             email,
             amount,
             plan,
-            hasExcessBuyBack,
+            hasExcessBuyBack
           );
           console.log(res.data);
           if (res.status === 200 || res.status === 201) {

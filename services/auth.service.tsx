@@ -1,7 +1,15 @@
 import api from "./Api";
 
-const SignIn = async (email: string, password: string) => {
-  return await api.post("/auth/login", { email, password });
+const SubscriberSignIn = async (email: string, password: string) => {
+  return await api.post("/auth/subscriber/login", { email, password });
+};
+
+const AgentSignIn = async (email: string, password: string) => {
+  return await api.post("/auth/agent/login", { email, password });
+};
+
+const AdminSignIn = async (email: string, password: string) => {
+  return await api.post("/auth/admin/login", { email, password });
 };
 
 const GetVehichleEstimate = async (value: number) => {
@@ -50,8 +58,34 @@ const ResendSetPasswordEmail = async (email: any) => {
   return await api.get(`/auth/set-password/resend/${email}`);
 };
 
+const RegisterAgent = async (
+  firstname: string,
+  lastname: string,
+  middlename: string,
+  gender: string,
+  dateofbirth: string,
+  phoneNumber: string,
+  email: string,
+  branch: string,
+  id_type: string,
+  homeAddress: string
+) => {
+  return await api.post("/agent", {
+    firstname,
+    lastname,
+    middlename,
+    gender,
+    dateofbirth,
+    phoneNumber,
+    email,
+    branch,
+    id_type,
+    homeAddress,
+  });
+};
+
 const authService = {
-  SignIn,
+  SubscriberSignIn,
   GetVehichleEstimate,
   RegisterSubscriber,
   ResendEmailConfirmation,
@@ -59,6 +93,9 @@ const authService = {
   VerifyToken,
   SetPassword,
   ResendSetPasswordEmail,
+  AgentSignIn,
+  AdminSignIn,
+  RegisterAgent,
 };
 
 export default authService;

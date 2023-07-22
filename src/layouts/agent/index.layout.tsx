@@ -51,20 +51,20 @@ const links = [
   },
 ];
 
-const belowLinks = [
-  {
-    id: 1,
-    Icon: <Squares2X2Icon className={"w-8 h-8"} />,
-    label: "Settings",
-    href: "/agent/settings",
-  },
-  {
-    id: 2,
-    Icon: <LockClosedIcon className={"w-8 h-8"} />,
-    label: "Log Out",
-    href: "/agent/log-out",
-  },
-];
+// const belowLinks = [
+//   {
+//     id: 1,
+//     Icon: <Squares2X2Icon className={"w-8 h-8"} />,
+//     label: "Settings",
+//     href: "/agent/settings",
+//   },
+//   {
+//     id: 2,
+//     Icon: <LockClosedIcon className={"w-8 h-8"} />,
+//     label: "Log Out",
+//     href: "/agent/log-out",
+//   },
+// ];
 
 interface AgentLayoutProps {
   title: string;
@@ -118,7 +118,7 @@ const AgentLayout: React.FC<AgentLayoutProps> = ({
             ))}
           </div>
 
-          <div>
+          {/* <div>
             {belowLinks.map((link) => (
               <Link
                 key={link.id}
@@ -133,7 +133,7 @@ const AgentLayout: React.FC<AgentLayoutProps> = ({
                 <span className={"font-medium"}>{link.label}</span>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

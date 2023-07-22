@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import PaginationComponent from "@/common/pagination/index.component";
 import AgentLayout from "@/layouts/agent/index.layout";
 import AgentVehicleCardComponent from "@/components/agent/vehicles/vehicle-card";
+import { useRouter } from "next/router";
 
 // Todo: replace the interface object with actual vehicle object
 interface Vehicle {
@@ -26,6 +27,7 @@ const AgentVehiclesComponent = () => {
 
   const [vehiclesTotalPages, setVehiclesTotalPages] = useState(0);
   const [vehiclesCurrentPage, setVehiclesCurrentPage] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setVehicles([
@@ -91,7 +93,11 @@ const AgentVehiclesComponent = () => {
               <option>All Policies</option>
             </FormSelectComponent>
 
-            <ButtonComponent size={"base"} variant={"filled"}>
+            <ButtonComponent
+              size={"base"}
+              variant={"filled"}
+              onClick={() => router.push("/agent/vehicles/create")}
+            >
               <div className={"flex items-center justify-center gap-2"}>
                 <PlusIcon className={"w-5 h-5"} />
                 <span>Add New Vehicle</span>

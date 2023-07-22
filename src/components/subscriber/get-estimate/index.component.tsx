@@ -45,7 +45,7 @@ const GetEstimateForSubscriberComponent = () => {
 
         localStorage.setItem(
           "SubscriberVehicleEstimateData",
-          JSON.stringify(estimatedData),
+          JSON.stringify(estimatedData)
         );
         setUiStates({ ...uiStates, loading: false });
         localStorage.setItem("SubscriberRegData", JSON.stringify(states));

@@ -10,6 +10,7 @@ import ButtonComponent from "@/common/button/index.component";
 import { useEffect, useState } from "react";
 import SubscriberVehicleCardComponent from "@/components/subscriber/vehicles/vehicle-card";
 import PaginationComponent from "@/common/pagination/index.component";
+import { useRouter } from "next/router";
 
 // Todo: replace the interface object with actual vehicle object
 interface Vehicle {
@@ -26,6 +27,7 @@ const SubscriberVehiclesComponent = () => {
 
   const [vehiclesTotalPages, setVehiclesTotalPages] = useState(0);
   const [vehiclesCurrentPage, setVehiclesCurrentPage] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setVehicles([
@@ -91,7 +93,11 @@ const SubscriberVehiclesComponent = () => {
               <option>All Policies</option>
             </FormSelectComponent>
 
-            <ButtonComponent size={"base"} variant={"filled"}>
+            <ButtonComponent
+              size={"base"}
+              variant={"filled"}
+              onClick={() => router.push("/subscriber/vehicles/create")}
+            >
               <div className={"flex items-center justify-center gap-2"}>
                 <PlusIcon className={"w-5 h-5"} />
                 <span>Add New Vehicle</span>
